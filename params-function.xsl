@@ -13,8 +13,7 @@
     <xsl:param name="stylesheet-node" as="document-node(element(*))"/>
     <xsl:sequence select="transform(
                             map{'stylesheet-location': 'params.xsl',
-                                'document-node': $stylesheet-node,
-                                'global-context-item': $stylesheet-node,
+                                'source-node': $stylesheet-node,
                                 'initial-template': xs:QName('xsl:initial-template')}
                           )?output"></xsl:sequence>
   </xsl:function>
@@ -22,4 +21,5 @@
   <xsl:template name="test">
     <xsl:sequence select="params:in-stylesheet(doc(static-base-uri()))"/>
   </xsl:template>
+  
 </xsl:stylesheet>
